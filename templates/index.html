@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Trending Products</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <header>
+    <h1>Daily Trending Products Flipper</h1>
+    <p>Find items to buy low and sell higher with estimated profit guidance.</p>
+  </header>
+
+  <section class="filters">
+    <label>
+      Category
+      <select id="categoryFilter">
+        <option>All</option>
+        {% for category in categories %}
+          <option>{{ category }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <label>
+      Difficulty
+      <select id="difficultyFilter">
+        <option>All</option>
+        <option value="1">★☆☆☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="4">★★★★☆</option>
+        <option value="5">★★★★★</option>
+      </select>
+    </label>
+  </section>
+
+  <main id="results" class="results"></main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
